@@ -4,13 +4,23 @@ interface AppTextProps extends TextProps {
   children: React.ReactNode;
 }
 
-const AppText = ({ children, style, ...props }: AppTextProps) => {
+const AppText = ({ children, style }: AppTextProps) => {
   return <Text style={[styles.defaultStyle, style]}>{children}</Text>;
 };
 
 const styles = StyleSheet.create({
   defaultStyle: {
-    fontSize: 18,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+    ...Platform.select({
+      ios: {
+        fontFamily: "Avenir",
+        fontSize: 20,
+      },
+      android: {
+        fontFamily: "Roboto",
+        fontSize: 18,
+      },
+    }),
   },
 });
+
+export default AppText;
