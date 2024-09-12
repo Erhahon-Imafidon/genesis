@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
 import Colors from "../constants/Colors";
 import CustomButton from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
 
 const HomeScreen = () => {
   return (
@@ -17,17 +18,20 @@ const HomeScreen = () => {
         <Text style={styles.text}>Sell what you don't need</Text>
 
         <View style={styles.login}>
-          <CustomButton
-            title={"Login"}
-            onPress={() => console.log("Login Button Pressed")}
-          />
+          <CustomButton title={"Login"} onPress={() => {}} />
         </View>
 
         <View style={styles.register}>
           <CustomButton
             title={"Register"}
             color="secondary"
-            onPress={() => console.log("Register Button Pressed")}
+            onPress={() => {}}
+          />
+
+          <Card
+            image={require("../assets/images/jacket.jpg")}
+            title="Chair for Sale"
+            subTitle="#5000"
           />
         </View>
       </ImageBackground>
