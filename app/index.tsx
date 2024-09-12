@@ -6,6 +6,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <ImageBackground
+        blurRadius={10}
         style={styles.background}
         source={require("../assets/images/background.jpg")}
       >
@@ -55,6 +56,9 @@ const styles = StyleSheet.create({
 
   text: {
     color: Colors.black,
+    fontSize: 25,
+    fontWeight: "600",
+    marginTop: 10,
   },
 
   login: { marginTop: "auto", width: "100%", paddingHorizontal: 10 },
