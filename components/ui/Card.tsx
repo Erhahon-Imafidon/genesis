@@ -1,14 +1,9 @@
 import { Text, View, Image, StyleSheet } from "react-native";
 import Colors from "@/constants/Colors";
 import AppText from "@/components/ui/AppText";
+import { User } from "@/library/definitions";
 
-type UserCard = {
-  image: any;
-  title: string;
-  subTitle: string;
-};
-
-const Card = ({ image, title, subTitle }: UserCard) => {
+const Card = ({ image, title, subTitle }: User) => {
   return (
     <View style={styles.card}>
       <Image source={image} style={styles.image} />
