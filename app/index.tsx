@@ -1,4 +1,6 @@
 import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
+import { Link } from "expo-router";
+import { Button } from "@rneui/themed";
 import Colors from "../constants/Colors";
 import CustomButton from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -17,6 +19,16 @@ const HomeScreen = () => {
         />
         <Text style={styles.text}>Sell what you don't need</Text>
 
+        <Link href="/imageviewer" asChild>
+          <Button
+            containerStyle={{ marginVertical: 10 }}
+            title="View Image Screen"
+          />
+        </Link>
+        <Link href="/details" asChild>
+          <Button title="Go to details" />
+        </Link>
+
         <View style={styles.login}>
           <CustomButton title={"Login"} onPress={() => {}} />
         </View>
@@ -26,12 +38,6 @@ const HomeScreen = () => {
             title={"Register"}
             color="secondary"
             onPress={() => {}}
-          />
-
-          <Card
-            image={require("../assets/images/jacket.jpg")}
-            title="Chair for Sale"
-            subTitle="#5000"
           />
         </View>
       </ImageBackground>
