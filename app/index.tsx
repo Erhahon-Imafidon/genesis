@@ -19,15 +19,8 @@ const HomeScreen = () => {
         />
         <Text style={styles.text}>Sell what you don't need</Text>
 
-        <Link href="/imageviewer" asChild>
-          <Button
-            containerStyle={{ marginVertical: 10 }}
-            title="View Image Screen"
-          />
-        </Link>
-        <Link href="/details" asChild>
-          <Button title="Go to details" />
-        </Link>
+        <Link href="/imageviewer">View Image Screen</Link>
+        <Link href="/details">View Details Screen</Link>
 
         <View style={styles.login}>
           <CustomButton title={"Login"} onPress={() => {}} />

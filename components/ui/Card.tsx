@@ -1,7 +1,7 @@
 import { Text, View, Image, StyleSheet } from "react-native";
 import Colors from "@/constants/Colors";
 import AppText from "@/components/ui/AppText";
-import { User } from "@/library/definitions";
+import { User } from "@/lib/definitions";
 
 const Card = ({ image, title, subTitle }: User) => {
   return (
