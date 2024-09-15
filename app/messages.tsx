@@ -2,6 +2,7 @@ import { View, StyleSheet, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MessageUser } from "@/lib/definitions";
 import ListItem from "@/components/ui/ListItem";
+import Separator from "@/components/ui/Separators";
 
 const messages: MessageUser[] = [
   {
@@ -31,9 +32,16 @@ const MessagesScreen = (props: MessageUser[]) => {
             subTitle={item.description}
           />
         )}
+        ItemSeparatorComponent={Separator}
       />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default MessagesScreen;
