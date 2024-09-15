@@ -30,6 +30,7 @@ const MessagesScreen = (props: MessageUser[]) => {
             image={item.image}
             title={item.title}
             subTitle={item.description}
+            onPress={() => console.log("Message selected", item)}
           />
         )}
         ItemSeparatorComponent={Separator}

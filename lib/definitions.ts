@@ -2,6 +2,7 @@ export type User = {
   image: any;
   title: string;
   subTitle: string;
+  onPress?: () => void;
 };
 
 export type MessageUser = {

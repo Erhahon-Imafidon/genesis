@@ -1,18 +1,24 @@
 import { Avatar } from "@rneui/themed";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableHighlight } from "react-native";
 import AppText from "@/components/ui/AppText";
 import { User } from "@/lib/definitions";
 import Colors from "@/constants/Colors";
 
-const ListItem = ({ image, title, subTitle }: User) => {
+const ListItem = ({ image, title, subTitle, onPress }: User) => {
   return (
-    <View style={styles.container}>
-      <Avatar size={100} rounded source={image} />
-      <View style={styles.textContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+    <TouchableHighlight
+      activeOpacity={0.6}
+      underlayColor={Colors.lightGrey}
+      onPress={onPress}
+    >
+      <View style={styles.container}>
+        <Avatar size={100} rounded source={image} />
+        <View style={styles.textContainer}>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText style={styles.subTitle}>{subTitle}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 
