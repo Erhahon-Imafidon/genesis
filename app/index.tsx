@@ -19,6 +19,7 @@ const HomeScreen = () => {
 
         <Link href="/imageviewer">View Image Screen</Link>
         <Link href="/details">View Details Screen</Link>
+        <Link href="/messages">Messages Screen</Link>
 
         <View style={styles.login}>
           <CustomButton title={"Login"} onPress={() => {}} />
