@@ -1,9 +1,7 @@
 import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
 import { Link } from "expo-router";
-import { Button } from "@rneui/themed";
 import Colors from "../constants/Colors";
 import CustomButton from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
 
 const HomeScreen = () => {
   return (
