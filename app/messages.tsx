@@ -1,11 +1,12 @@
 import { View, StyleSheet, FlatList } from "react-native";
+import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MessageUser } from "@/lib/definitions";
 import ListItem from "@/components/ui/ListItem";
 import Separator from "@/components/ui/Separators";
 import ListDeleteAction from "@/components/ui/ListDeleteAction";
 
-const messages: MessageUser[] = [
+const initialMessage: MessageUser[] = [
   {
     id: 1,
     title: "T1",
@@ -21,6 +22,11 @@ const messages: MessageUser[] = [
 ];
 
 const MessagesScreen = (props: MessageUser[]) => {
+  const [messages, setMessages] = useState<MessageUser[]>(initialMessage);
+
+  const handleDelete = (messageId: number) => {
+    setMessages(messages.filter((message) => message.id !== messageId));
+  };
   return (
     <SafeAreaView>
       <FlatList
@@ -32,7 +38,9 @@ const MessagesScreen = (props: MessageUser[]) => {
             title={item.title}
             subTitle={item.description}
             onPress={() => console.log("Message selected", item)}
-            renderRightActions={ListDeleteAction}
+            renderRightActions={() => (
+              <ListDeleteAction onPress={() => handleDelete(item.id)} />
+            )}
           />
         )}
         ItemSeparatorComponent={Separator}
