@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { MessageUser } from "@/lib/definitions";
 import ListItem from "@/components/ui/ListItem";
 import Separator from "@/components/ui/Separators";
+import ListDeleteAction from "@/components/ui/ListDeleteAction";
 
 const messages: MessageUser[] = [
   {
@@ -31,6 +32,7 @@ const MessagesScreen = (props: MessageUser[]) => {
             title={item.title}
             subTitle={item.description}
             onPress={() => console.log("Message selected", item)}
+            renderRightActions={ListDeleteAction}
           />
         )}
         ItemSeparatorComponent={Separator}

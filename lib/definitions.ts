@@ -3,6 +3,7 @@ export type User = {
   title: string;
   subTitle: string;
   onPress?: () => void;
+  renderRightActions?: () => JSX.Element;
 };
 
 export type MessageUser = {

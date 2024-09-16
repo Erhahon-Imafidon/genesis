@@ -6,6 +6,7 @@ const Colors = {
   mediumGray: "#6e6969",
   lightBlue: "#b8cad4",
   lightGrey: "#f8f4f4",
+  danger: "#ff5252",
 };
 
 export default Colors;
