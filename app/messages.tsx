@@ -5,6 +5,7 @@ import { MessageUser } from "@/lib/definitions";
 import ListItem from "@/components/ui/ListItem";
 import Separator from "@/components/ui/Separators";
 import ListDeleteAction from "@/components/ui/ListDeleteAction";
+import { set } from "yaml/dist/schema/yaml-1.1/set";
 
 const initialMessage: MessageUser[] = [
   {
@@ -23,6 +24,7 @@ const initialMessage: MessageUser[] = [
 
 const MessagesScreen = (props: MessageUser[]) => {
   const [messages, setMessages] = useState<MessageUser[]>(initialMessage);
+  const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (messageId: number) => {
     setMessages(messages.filter((message) => message.id !== messageId));
@@ -44,6 +46,17 @@ const MessagesScreen = (props: MessageUser[]) => {
           />
         )}
         ItemSeparatorComponent={Separator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../assets/images/imafidon.jpeg"),
+            },
+          ]);
+        }}
       />
     </SafeAreaView>
   );
