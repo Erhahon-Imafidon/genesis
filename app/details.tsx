@@ -1,11 +1,11 @@
 import { Image, View, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
-import ListItem from "@/components/ui/ListItem";
 
 const ListingDetailsScreen = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <Image
         style={styles.image}
         source={require("../assets/images/jacket.jpg")}
@@ -14,17 +14,15 @@ const ListingDetailsScreen = () => {
         <AppText style={styles.title}>Chair for Sale</AppText>
         <AppText style={styles.price}>#5000</AppText>
       </View>
-
-      <ListItem
-        image={require("../assets/images/imafidon.jpeg")}
-        title="Micheal Imafidon"
-        subTitle="5 Listings"
-      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+
   image: {
     width: "100%",
     height: 300,

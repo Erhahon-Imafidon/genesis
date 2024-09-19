@@ -1,18 +1,18 @@
 import { View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons/";
 
 interface IconProps {
   backgroundColor: string;
-  name: typeof MaterialCommunityIcons.glyphMap;
+  name: keyof typeof MaterialCommunityIcons.glyphMap;
   size: number;
   iconColor: string;
 }
 
 const Icons = ({
-  backgroundColor = "#000",
+  backgroundColor,
   name,
-  size = 40,
-  iconColor = "#fff",
+  size,
+  iconColor,
 }: IconProps) => {
   return (
     <View
@@ -21,9 +21,11 @@ const Icons = ({
         height: size,
         borderRadius: size / 2,
         backgroundColor,
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <MaterialCommunityIcons name={name} size={size} color={iconColor} />
+      <MaterialCommunityIcons name={name} size={size * 0.5} color={iconColor} />
     </View>
   );
 };
