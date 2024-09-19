@@ -1,11 +1,10 @@
-import { View, StyleSheet, FlatList } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MessageUser } from "@/lib/definitions";
 import ListItem from "@/components/ui/ListItem";
 import Separator from "@/components/ui/Separators";
 import ListDeleteAction from "@/components/ui/ListDeleteAction";
-import Icons from "@/components/ui/Icons";
 
 const initialMessage: MessageUser[] = [
   {
@@ -58,7 +57,6 @@ const MessagesScreen = (props: MessageUser[]) => {
           ]);
         }}
       />
-      <Icons backgroundColor="red" name="email" size={50} iconColor="#fff" />
     </SafeAreaView>
   );
 };

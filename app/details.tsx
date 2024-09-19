@@ -1,7 +1,8 @@
 import { Image, View, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
+import ItemListTwo from "@/components/ui/ItemListTwo";
+import Icons from "@/components/ui/Icons";
 
 const ListingDetailsScreen = () => {
   return (
@@ -14,6 +15,18 @@ const ListingDetailsScreen = () => {
         <AppText style={styles.title}>Chair for Sale</AppText>
         <AppText style={styles.price}>#5000</AppText>
       </View>
+
+      <ItemListTwo
+        title={"Myrmidon"}
+        ImageComponent={() => (
+          <Icons
+            name="email"
+            size={50}
+            iconColor={Colors.white}
+            backgroundColor={Colors.black}
+          />
+        )}
+      />
     </View>
   );
 };

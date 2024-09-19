@@ -1,9 +1,11 @@
+import { ImageSourcePropType } from "react-native";
+
 export type User = {
-  image: any;
+  image?: ImageSourcePropType;
   title: string;
   subTitle: string;
   onPress?: () => void;
-  renderRightActions?: () => JSX.Element;
+  renderRightActions?: React.FC<any>; // Different method of creating a type that returns a jsx or tsx Function
 };
 
 export type MessageUser = {

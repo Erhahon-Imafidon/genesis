@@ -1,5 +1,4 @@
-import { Avatar } from "@rneui/themed";
-import { View, StyleSheet, TouchableHighlight } from "react-native";
+import { View, StyleSheet, TouchableHighlight, Image } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import AppText from "@/components/ui/AppText";
@@ -14,7 +13,7 @@ const ListItem = ({
   renderRightActions,
 }: User) => {
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight
           activeOpacity={0.6}
@@ -22,7 +21,7 @@ const ListItem = ({
           onPress={onPress}
         >
           <View style={styles.container}>
-            <Avatar size={100} rounded source={image} />
+            <Image style={styles.imageStyle} source={image} />
             <View style={styles.textContainer}>
               <AppText style={styles.title}>{title}</AppText>
               <AppText style={styles.subTitle}>{subTitle}</AppText>
@@ -52,6 +51,12 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: Colors.mediumGray,
+  },
+
+  imageStyle: {
+    height: 70,
+    width: 70,
+    borderRadius: 35,
   },
 });
 
