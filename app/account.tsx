@@ -5,20 +5,25 @@ import ListItem from "@/components/ui/ListItem";
 import Colors from "@/constants/Colors";
 import Icons, { IconProps } from "@/components/ui/Icons";
 
-interface MenuProps extends IconProps {
+interface IMenuProps {
   title: string;
+  icon: IconProps;
 }
 
-const menuItems: MenuProps[] = [
+const menuItems: IMenuProps[] = [
   {
     title: "My Listings",
-    name: "format-list-bulleted",
-    backgroundColor: Colors.primary,
+    icon: {
+      name: "format-list-bulleted",
+      backgroundColor: Colors.primary,
+    },
   },
   {
     title: "My Messages",
-    name: "email",
-    backgroundColor: Colors.secondary,
+    icon: {
+      name: "email",
+      backgroundColor: Colors.secondary,
+    },
   },
 ];
 
@@ -41,8 +46,8 @@ const AccountScreen = () => {
               title={item.title}
               ImageComponent={() => (
                 <Icons
-                  name={item.name}
-                  backgroundColor={item.backgroundColor}
+                  name={item.icon.name}
+                  backgroundColor={item.icon.backgroundColor}
                 />
               )}
             />
