@@ -4,6 +4,7 @@ import ItemListTwo from "@/components/ui/ItemListTwo";
 import ListItem from "@/components/ui/ListItem";
 import Colors from "@/constants/Colors";
 import Icons, { IconProps } from "@/components/ui/Icons";
+import Separator from "@/components/ui/Separators";
 
 interface IMenuProps {
   title: string;
@@ -29,7 +30,7 @@ const menuItems: IMenuProps[] = [
 
 const AccountScreen = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.screen}>
       <View style={styles.container}>
         <ItemListTwo
           title="Erhahon Imafidon"
@@ -44,7 +45,7 @@ const AccountScreen = () => {
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
-              ImageComponent={() => (
+              IconComponent={() => (
                 <Icons
                   name={item.icon.name}
                   backgroundColor={item.icon.backgroundColor}
@@ -52,13 +53,27 @@ const AccountScreen = () => {
               )}
             />
           )}
+          ItemSeparatorComponent={Separator}
         />
+        <View style={styles.container}>
+          <ItemListTwo
+            title="Log Out"
+            IconComponent={() => (
+              <Icons name="logout" backgroundColor="#ffe66d" />
+            )}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: Colors.lightGrey,
+    flex: 1,
+  },
+
   container: {
     marginVertical: 10,
   },

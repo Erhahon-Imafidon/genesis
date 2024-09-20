@@ -17,7 +17,7 @@ const HomeScreen = () => {
         />
         <Text style={styles.text}>Sell what you don't need</Text>
 
-        <Link href="/imageviewer">View Image Screen</Link>
+        <Link href="/listings">Listings Screen</Link>
         <Link href="/details">View Details Screen</Link>
         <Link href="/messages">Messages Screen</Link>
         <Link style={{ marginTop: 5 }} href="/account">

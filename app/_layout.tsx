@@ -14,6 +14,7 @@ const RootLayout = () => {
         <Stack.Screen name="details" />
         <Stack.Screen name="messages" />
         <Stack.Screen name="account" />
+        <Stack.Screen name="listings" />
       </Stack>
     </SafeAreaProvider>
   );

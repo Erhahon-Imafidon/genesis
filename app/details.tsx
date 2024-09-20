@@ -18,7 +18,7 @@ const ListingDetailsScreen = () => {
 
       <ItemListTwo
         title={"Myrmidon"}
-        ImageComponent={() => (
+        IconComponent={() => (
           <Icons
             name="email"
             size={50}

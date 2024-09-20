@@ -11,7 +11,7 @@ const ListItem = ({
   subTitle,
   onPress,
   renderRightActions,
-  ImageComponent,
+  IconComponent,
 }: User) => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -22,7 +22,7 @@ const ListItem = ({
           onPress={onPress}
         >
           <View style={styles.container}>
-            {ImageComponent && <ImageComponent />}
+            {IconComponent && <IconComponent />}
             {image && <Image style={styles.imageStyle} source={image} />}
             <View style={styles.textContainer}>
               <AppText style={styles.title}>{title}</AppText>
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 15,
+    backgroundColor: Colors.white,
   },
 
   textContainer: {
