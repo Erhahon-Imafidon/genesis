@@ -11,6 +11,7 @@ const ListItem = ({
   subTitle,
   onPress,
   renderRightActions,
+  ImageComponent,
 }: User) => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -21,10 +22,13 @@ const ListItem = ({
           onPress={onPress}
         >
           <View style={styles.container}>
-            <Image style={styles.imageStyle} source={image} />
+            {ImageComponent && <ImageComponent />}
+            {image && <Image style={styles.imageStyle} source={image} />}
             <View style={styles.textContainer}>
               <AppText style={styles.title}>{title}</AppText>
-              <AppText style={styles.subTitle}>{subTitle}</AppText>
+              {subTitle && (
+                <AppText style={styles.subTitle}>{subTitle}</AppText>
+              )}
             </View>
           </View>
         </TouchableHighlight>
@@ -35,7 +39,6 @@ const ListItem = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: "row",
     padding: 15,
   },

@@ -1,18 +1,18 @@
 import { View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons/";
 
-interface IconProps {
+export interface IconProps {
   backgroundColor: string;
   name: keyof typeof MaterialCommunityIcons.glyphMap;
-  size: number;
-  iconColor: string;
+  size?: number;
+  iconColor?: string;
 }
 
 const Icons = ({
   backgroundColor,
   name,
-  size,
-  iconColor,
+  size = 40,
+  iconColor = "#fff",
 }: IconProps) => {
   return (
     <View
