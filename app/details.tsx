@@ -1,8 +1,7 @@
 import { Image, View, StyleSheet } from "react-native";
 import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
-import ItemListTwo from "@/components/ui/ItemListTwo";
-import Icons from "@/components/ui/Icons";
+import AppTextInput from "@/components/ui/AppTextInput";
 
 const ListingDetailsScreen = () => {
   return (
@@ -16,16 +15,11 @@ const ListingDetailsScreen = () => {
         <AppText style={styles.price}>#5000</AppText>
       </View>
 
-      <ItemListTwo
-        title={"Myrmidon"}
-        IconComponent={() => (
-          <Icons
-            name="email"
-            size={50}
-            iconColor={Colors.white}
-            backgroundColor={Colors.black}
-          />
-        )}
+      <AppTextInput
+        name="email"
+        placeholder="Email Seller"
+        size={24}
+        color={Colors.mediumGray}
       />
     </View>
   );
