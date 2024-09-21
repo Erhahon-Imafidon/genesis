@@ -4,13 +4,16 @@ import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
 import AppTextInput from "@/components/ui/AppTextInput";
 import AppPicker from "@/components/ui/AppPicker";
+import { Category } from "@/components/ui/AppPicker";
+
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Camera", value: 3 },
+];
 
 const ListingDetailsScreen = () => {
-  const categories = [
-    { label: "Furniture", value: 1 },
-    { label: "Clothing", value: 2 },
-    { label: "Camera", value: 3 },
-  ];
+  const [category, setCategory] = useState<Category | undefined>(categories[0]);
 
   return (
     <View style={styles.container}>
@@ -24,6 +27,8 @@ const ListingDetailsScreen = () => {
       </View>
 
       <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
         items={categories}
         name="apps"
         placeholder="Category"

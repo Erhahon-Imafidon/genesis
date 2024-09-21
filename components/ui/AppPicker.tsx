@@ -13,12 +13,19 @@ import Colors from "@/constants/Colors";
 import { Button } from "@rneui/themed";
 import PickerItem from "@/components/ui/PickerItem";
 
+export type Category = {
+  label: string;
+  value: number;
+};
+
 type AppPickerProp = {
   name?: keyof typeof MaterialCommunityIcons.glyphMap;
   size?: number;
   color?: string;
   placeholder?: React.ReactNode;
-  items?: any[];
+  items?: Category[];
+  selectedItem?: Category;
+  onSelectItem?: (item: any) => void;
 };
 
 const AppTextInput: React.FC<AppPickerProp> = ({
@@ -27,8 +34,16 @@ const AppTextInput: React.FC<AppPickerProp> = ({
   color,
   placeholder,
   items,
+  selectedItem,
+  onSelectItem,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const handleSelectItem = (item: any) => {
+    setModalVisible(false);
+    onSelectItem?.(item);
+  };
+
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
@@ -42,7 +57,9 @@ const AppTextInput: React.FC<AppPickerProp> = ({
             />
           )}
 
-          <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? (selectedItem as any).label : placeholder}
+          </AppText>
 
           <MaterialCommunityIcons
             name="chevron-down"
@@ -60,7 +77,7 @@ const AppTextInput: React.FC<AppPickerProp> = ({
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
-                onPress={() => console.log(item)}
+                onPress={() => handleSelectItem(item)}
               />
             )}
           />
