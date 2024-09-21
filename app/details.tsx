@@ -6,7 +6,11 @@ import AppTextInput from "@/components/ui/AppTextInput";
 import AppPicker from "@/components/ui/AppPicker";
 
 const ListingDetailsScreen = () => {
-  const [isNew, setIsNew] = useState(false);
+  const categories = [
+    { label: "Furniture", value: 1 },
+    { label: "Clothing", value: 2 },
+    { label: "Camera", value: 3 },
+  ];
 
   return (
     <View style={styles.container}>
@@ -20,6 +24,7 @@ const ListingDetailsScreen = () => {
       </View>
 
       <AppPicker
+        items={categories}
         name="apps"
         placeholder="Category"
         size={24}

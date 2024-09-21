@@ -3,6 +3,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Modal,
+  FlatList,
 } from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,12 +11,14 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
 import { Button } from "@rneui/themed";
+import PickerItem from "@/components/ui/PickerItem";
 
 type AppPickerProp = {
   name?: keyof typeof MaterialCommunityIcons.glyphMap;
   size?: number;
   color?: string;
   placeholder?: React.ReactNode;
+  items?: any[];
 };
 
 const AppTextInput: React.FC<AppPickerProp> = ({
@@ -23,6 +26,7 @@ const AppTextInput: React.FC<AppPickerProp> = ({
   size,
   color,
   placeholder,
+  items,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
@@ -49,7 +53,17 @@ const AppTextInput: React.FC<AppPickerProp> = ({
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
         <SafeAreaView>
-          <Button title="close" onPress={() => setModalVisible(false)} />
+          <Button onPress={() => setModalVisible(false)}>Close</Button>
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItem
+                label={item.label}
+                onPress={() => console.log(item)}
+              />
+            )}
+          />
         </SafeAreaView>
       </Modal>
     </>
