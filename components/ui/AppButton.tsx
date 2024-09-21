@@ -9,7 +9,7 @@ type buttonProps = {
   onPress?: () => void;
 };
 
-const CustomButton = ({ title, onPress, color = "primary" }: buttonProps) => {
+const AppButton = ({ title, onPress, color = "primary" }: buttonProps) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomButton;
+export default AppButton;

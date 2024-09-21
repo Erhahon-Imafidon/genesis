@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
 import { Link } from "expo-router";
 import Colors from "../constants/Colors";
-import CustomButton from "@/components/ui/Button";
+import CustomButton from "@/components/ui/AppButton";
 
 const HomeScreen = () => {
   return (
@@ -19,7 +19,7 @@ const HomeScreen = () => {
 
         <Link href="/listings">Listings Screen</Link>
         <Link href="/details">View Details Screen</Link>
-        <Link href="/messages">Messages Screen</Link>
+        <Link href="/login">Login Screen</Link>
         <Link style={{ marginTop: 5 }} href="/account">
           Account Screen
         </Link>

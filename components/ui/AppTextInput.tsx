@@ -1,4 +1,4 @@
-import { View, TextInput, StyleSheet, Platform } from "react-native";
+import { View, TextInput, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "@/constants/styles";
 
@@ -10,8 +10,8 @@ type AppInputProp = {
 
 const AppTextInput: React.FC<AppInputProp> = ({
   name,
-  size,
-  color,
+  size = 25,
+  color = defaultStyles.text.color,
   ...otherProps
 }) => {
   return (
