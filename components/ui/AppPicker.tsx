@@ -1,9 +1,15 @@
-import { View, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Modal,
+} from "react-native";
+import { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import defaultStyles from "@/constants/styles";
 import AppText from "@/components/ui/AppText";
-import { placeholder } from "@babel/types";
 import Colors from "@/constants/Colors";
+import { Button } from "@rneui/themed";
 
 type AppPickerProp = {
   name?: keyof typeof MaterialCommunityIcons.glyphMap;
@@ -18,25 +24,35 @@ const AppTextInput: React.FC<AppPickerProp> = ({
   color,
   placeholder,
 }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={styles.container}>
-      {name && (
-        <MaterialCommunityIcons
-          name={name}
-          size={size}
-          color={color}
-          style={{ marginRight: 10 }}
-        />
-      )}
+    <>
+      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
+        <View style={styles.container}>
+          {name && (
+            <MaterialCommunityIcons
+              name={name}
+              size={size}
+              color={color}
+              style={{ marginRight: 10 }}
+            />
+          )}
 
-      <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>{placeholder}</AppText>
 
-      <MaterialCommunityIcons
-        name="chevron-down"
-        size={24}
-        color={Colors.dark}
-      />
-    </View>
+          <MaterialCommunityIcons
+            name="chevron-down"
+            size={24}
+            color={Colors.dark}
+          />
+        </View>
+      </TouchableWithoutFeedback>
+      <Modal visible={modalVisible} animationType="slide">
+        <SafeAreaView>
+          <Button title="close" onPress={() => setModalVisible(false)} />
+        </SafeAreaView>
+      </Modal>
+    </>
   );
 };
 
