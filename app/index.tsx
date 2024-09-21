@@ -19,21 +19,24 @@ const HomeScreen = () => {
 
         <Link href="/listings">Listings Screen</Link>
         <Link href="/details">View Details Screen</Link>
-        <Link href="/login">Login Screen</Link>
         <Link style={{ marginTop: 5 }} href="/account">
           Account Screen
         </Link>
 
         <View style={styles.login}>
-          <CustomButton title={"Login"} onPress={() => {}} />
+          <Link href={"/login"} asChild>
+            <CustomButton title={"Login"} />
+          </Link>
         </View>
 
         <View style={styles.register}>
-          <CustomButton
-            title={"Register"}
-            color="secondary"
-            onPress={() => {}}
-          />
+          <Link href="/register" asChild>
+            <CustomButton
+              title={"Register"}
+              color="secondary"
+              onPress={() => {}}
+            />
+          </Link>
         </View>
       </ImageBackground>
     </View>

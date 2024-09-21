@@ -24,7 +24,7 @@ const AppTextInput: React.FC<AppInputProp> = ({
           style={{ marginRight: 10 }}
         />
       )}
-      <TextInput style={defaultStyles.text} {...otherProps} />
+      <TextInput style={[defaultStyles.text, { flex: 1 }]} {...otherProps} />
     </View>
   );
 };
