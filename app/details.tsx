@@ -3,6 +3,7 @@ import { useState } from "react";
 import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
 import AppTextInput from "@/components/ui/AppTextInput";
+import AppPicker from "@/components/ui/AppPicker";
 
 const ListingDetailsScreen = () => {
   const [isNew, setIsNew] = useState(false);
@@ -18,14 +19,19 @@ const ListingDetailsScreen = () => {
         <AppText style={styles.price}>#5000</AppText>
       </View>
 
+      <AppPicker
+        name="apps"
+        placeholder="Category"
+        size={24}
+        color={Colors.dark}
+      />
+
       <AppTextInput
         name="email"
         placeholder="Email Seller"
         size={24}
         color={Colors.primary}
       />
-
-      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </View>
   );
 };
