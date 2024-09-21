@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
       },
     }),
+    color: "#0c0c0c",
   },
 });
 

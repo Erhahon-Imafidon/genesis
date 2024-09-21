@@ -1,5 +1,6 @@
 import { View, TextInput, StyleSheet, Platform } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import defaultStyles from "@/constants/styles";
 
 type AppInputProp = {
   name?: keyof typeof MaterialCommunityIcons.glyphMap;
@@ -15,8 +16,15 @@ const AppTextInput: React.FC<AppInputProp> = ({
 }) => {
   return (
     <View style={styles.container}>
-      {name && <MaterialCommunityIcons name={name} size={size} color={color} />}
-      <TextInput style={styles.textInput} {...otherProps} />
+      {name && (
+        <MaterialCommunityIcons
+          name={name}
+          size={size}
+          color={color}
+          style={{ marginRight: 10 }}
+        />
+      )}
+      <TextInput style={defaultStyles.text} {...otherProps} />
     </View>
   );
 };
@@ -30,13 +38,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 15,
     marginVertical: 10,
-  },
-
-  textInput: {
-    fontSize: 18,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
-    marginLeft: 10,
-    color: "#0c0c0c",
   },
 });
 

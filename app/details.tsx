@@ -1,9 +1,12 @@
-import { Image, View, StyleSheet } from "react-native";
+import { Image, View, StyleSheet, Switch } from "react-native";
+import { useState } from "react";
 import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
 import AppTextInput from "@/components/ui/AppTextInput";
 
 const ListingDetailsScreen = () => {
+  const [isNew, setIsNew] = useState(false);
+
   return (
     <View style={styles.container}>
       <Image
@@ -19,8 +22,10 @@ const ListingDetailsScreen = () => {
         name="email"
         placeholder="Email Seller"
         size={24}
-        color={Colors.mediumGray}
+        color={Colors.primary}
       />
+
+      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </View>
   );
 };
