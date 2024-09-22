@@ -3,10 +3,11 @@ import AppText from "@/components/ui/AppText";
 
 type ErrorProps = {
   error: string;
+  visible?: boolean;
 };
 
-const ErrorMessage: React.FC<ErrorProps> = ({ error }) => {
-  if (!error) return null;
+const ErrorMessage: React.FC<ErrorProps> = ({ error, visible }) => {
+  if (!error || !visible) return null;
 
   return <AppText style={styles.error}>{error}</AppText>;
 };

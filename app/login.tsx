@@ -31,6 +31,8 @@ const LoginScreen = () => {
           handleSubmit,
           values,
           errors,
+          setFieldTouched,
+          touched,
         }: FormikProps<FormValues>) => (
           <>
             <Image
@@ -46,8 +48,9 @@ const LoginScreen = () => {
               textContentType={"emailAddress"}
               onChangeText={handleChange("email")}
               value={values.email}
+              onBlur={() => setFieldTouched("email")}
             />
-            <ErrorMessage error={errors.email || ""} />
+            <ErrorMessage error={errors.email || ""} visible={touched.email} />
             <AppTextInput
               name="lock"
               placeholder="password"
@@ -57,8 +60,9 @@ const LoginScreen = () => {
               textContentType={"password"}
               onChangeText={handleChange("pwd")}
               value={values.pwd}
+              onBlur={() => setFieldTouched("pwd")}
             />
-            <ErrorMessage error={errors.pwd || ""} />
+            <ErrorMessage error={errors.pwd || ""} visible={touched.pwd} />
 
             <AppButton title="Login" onPress={handleSubmit} />
           </>
