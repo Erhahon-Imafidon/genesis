@@ -1,24 +1,29 @@
+import { forwardRef } from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import Colors from "@/constants/Colors";
 
 type ColorsKeys = keyof typeof Colors;
 
-type buttonProps = {
+type ButtonProps = {
   title: string;
   color?: ColorsKeys;
   onPress?: () => void;
 };
 
-const AppButton = ({ title, onPress, color = "primary" }: buttonProps) => {
+const AppButton: React.FC<ButtonProps> = forwardRef<
+  TouchableOpacity,
+  ButtonProps
+>(({ title, onPress, color = "primary" }, ref) => {
   return (
     <TouchableOpacity
+      ref={ref}
       onPress={onPress}
       style={[styles.button, { backgroundColor: Colors[color] }]}
     >
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
-};
+});
 
 const styles = StyleSheet.create({
   button: {

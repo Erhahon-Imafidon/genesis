@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
 import { Link } from "expo-router";
 import Colors from "../constants/Colors";
-import CustomButton from "@/components/ui/AppButton";
+import AppButton from "@/components/ui/AppButton";
 
 const HomeScreen = () => {
   return (
@@ -25,17 +25,13 @@ const HomeScreen = () => {
 
         <View style={styles.login}>
           <Link href={"/login"} asChild>
-            <CustomButton title={"Login"} />
+            <AppButton title={"Login"} />
           </Link>
         </View>
 
         <View style={styles.register}>
           <Link href="/register" asChild>
-            <CustomButton
-              title={"Register"}
-              color="secondary"
-              onPress={() => {}}
-            />
+            <AppButton title={"Register"} color="secondary" />
           </Link>
         </View>
       </ImageBackground>
