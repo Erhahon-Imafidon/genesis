@@ -2,10 +2,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, Image } from "react-native";
 import { Formik, FormikProps } from "formik";
 import * as Yup from "yup";
+
 import AppTextInput from "@/components/ui/AppTextInput";
 import AppButton from "@/components/ui/AppButton";
-import AppText from "@/components/ui/AppText";
-import { Color } from "ansi-fragments/build/fragments/Color";
+import ErrorMessage from "@/components/ui/ErrorMessage";
 
 type FormValues = {
   email: string;
@@ -47,7 +47,7 @@ const LoginScreen = () => {
               onChangeText={handleChange("email")}
               value={values.email}
             />
-            <AppText style={{ color: "red" }}>{errors.email}</AppText>
+            <ErrorMessage error={errors.email || ""} />
             <AppTextInput
               name="lock"
               placeholder="password"
@@ -58,7 +58,7 @@ const LoginScreen = () => {
               onChangeText={handleChange("pwd")}
               value={values.pwd}
             />
-            <AppText style={{ color: "red" }}>{errors.pwd}</AppText>
+            <ErrorMessage error={errors.pwd || ""} />
 
             <AppButton title="Login" onPress={handleSubmit} />
           </>
