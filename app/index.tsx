@@ -22,6 +22,9 @@ const HomeScreen = () => {
         <Link style={{ marginTop: 5 }} href="/account">
           Account Screen
         </Link>
+        <Link style={{ marginTop: 5 }} href="/list-edit">
+          List Edit Screen
+        </Link>
 
         <View style={styles.login}>
           <Link href={"/login"} asChild>

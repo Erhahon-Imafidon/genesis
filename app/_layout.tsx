@@ -15,6 +15,7 @@ const RootLayout = () => {
         <Stack.Screen name="messages" />
         <Stack.Screen name="account" />
         <Stack.Screen name="listings" />
+        <Stack.Screen name="list-edit" />
         <Stack.Screen name="login" />
         <Stack.Screen name="register" />
       </Stack>
