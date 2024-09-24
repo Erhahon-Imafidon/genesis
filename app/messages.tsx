@@ -2,9 +2,9 @@ import { StyleSheet, FlatList } from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MessageUser } from "@/lib/definitions";
-import ListItem from "@/components/ui/ListItem";
-import Separator from "@/components/ui/Separators";
-import ListDeleteAction from "@/components/ui/ListDeleteAction";
+import ListItem from "@/components/lists/ListItem";
+import Separator from "@/components/lists/Separators";
+import ListDeleteAction from "@/components/lists/ListDeleteAction";
 
 const initialMessage: MessageUser[] = [
   {

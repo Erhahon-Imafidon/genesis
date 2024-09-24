@@ -1,10 +1,10 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, View, FlatList } from "react-native";
-import ItemListTwo from "@/components/ui/ItemListTwo";
-import ListItem from "@/components/ui/ListItem";
+import ItemListTwo from "@/components/lists/ItemListTwo";
+import ListItem from "@/components/lists/ListItem";
 import Colors from "@/constants/Colors";
 import Icons, { IconProps } from "@/components/ui/Icons";
-import Separator from "@/components/ui/Separators";
+import Separator from "@/components/lists/Separators";
 
 interface IMenuProps {
   title: string;
