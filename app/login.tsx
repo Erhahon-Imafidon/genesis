@@ -4,11 +4,10 @@ import { StyleSheet, Image } from "react-native";
 import { Formik, FormikProps } from "formik";
 import * as Yup from "yup";
 
-import AppTextInput from "@/components/ui/AppTextInput";
-import AppButton from "@/components/ui/AppButton";
-import ErrorMessage from "@/components/ui/ErrorMessage";
+import AppTextInput from "@/components/forms/AppTextInput";
+import ErrorMessage from "@/components/forms/ErrorMessage";
 import AppText from "@/components/ui/AppText";
-import SubmitButton from "@/components/ui/SubmitButton";
+import SubmitButton from "@/components/forms/SubmitButton";
 import Colors from "@/constants/Colors";
 
 type FormValues = {
@@ -25,7 +24,6 @@ const valdidationSchema = Yup.object().shape({
     .matches(/[A-Z]/, "must contain one uppercase letter")
     .matches(/[0-9]/, "must contain one number")
     .matches(/[!@#$%]/, "must contain one special character")
-    .min(8)
     .label("Password"),
 });
 
@@ -33,25 +31,24 @@ const LoginScreen = () => {
   const [pwdFocus, setPwdFocus] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
+      <Image
+        source={require("../assets/images/logo-red.png")}
+        style={styles.logo}
+      />
       <Formik
         initialValues={{ email: "", pwd: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={valdidationSchema}
       >
-        {/*This ensures that handleSubmit is correctly typed without needing to use as any.*/}
+        {/*Used the FormikProps from formik to ensure that handleSubmit is correctly typed without needing to use as any.*/}
         {({
           handleChange,
-          handleSubmit,
           values,
           errors,
           setFieldTouched,
           touched,
         }: FormikProps<FormValues>) => (
           <>
-            <Image
-              source={require("../assets/images/logo-red.png")}
-              style={styles.logo}
-            />
             <AppTextInput
               name="email"
               autoCapitalize="none"

@@ -2,7 +2,7 @@ import { Image, View, StyleSheet, Switch } from "react-native";
 import { useState } from "react";
 import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
-import AppTextInput from "@/components/ui/AppTextInput";
+import AppTextInput from "@/components/forms/AppTextInput";
 import AppPicker from "@/components/ui/AppPicker";
 import { Category } from "@/components/ui/AppPicker";
 
