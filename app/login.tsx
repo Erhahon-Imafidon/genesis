@@ -8,6 +8,7 @@ import AppTextInput from "@/components/ui/AppTextInput";
 import AppButton from "@/components/ui/AppButton";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 import AppText from "@/components/ui/AppText";
+import SubmitButton from "@/components/ui/SubmitButton";
 import Colors from "@/constants/Colors";
 
 type FormValues = {
@@ -86,7 +87,7 @@ const LoginScreen = () => {
               </AppText>
             )}
 
-            <AppButton title="Login" onPress={handleSubmit} />
+            <SubmitButton title="Login" />
           </>
         )}
       </Formik>
