@@ -1,12 +1,17 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { FlatList, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import AppPicker from "@/components/ui/AppPicker";
-import AppText from "@/components/ui/AppText";
+import AppTextInput from "@/components/forms/AppTextInput";
+import AppButton from "@/components/ui/AppButton";
 
 const ListEditScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <AppText>List Edit Screen</AppText>
+      <AppTextInput placeholder="Title" />
+      <AppTextInput placeholder="Price" />
+      <AppPicker placeholder="Category" />
+      <AppTextInput placeholder="Description" />
+      <AppButton title={"Post"} />
     </SafeAreaView>
   );
 };
@@ -14,6 +19,7 @@ const ListEditScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "white",
   },
 });
 
