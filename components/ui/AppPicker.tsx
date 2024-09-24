@@ -28,7 +28,7 @@ type AppPickerProp = {
   onSelectItem?: (item: any) => void;
 };
 
-const AppTextInput: React.FC<AppPickerProp> = ({
+const AppPicker: React.FC<AppPickerProp> = ({
   name,
   size,
   color,
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AppTextInput;
+export default AppPicker;
