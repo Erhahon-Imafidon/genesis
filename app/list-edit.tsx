@@ -57,7 +57,7 @@ const ListEditScreen = () => {
 
             <AppFormPicker
               items={categories}
-              inputName={"category"}
+              inputName="category"
               placeholder="Category"
             />
 
@@ -67,12 +67,6 @@ const ListEditScreen = () => {
               multiline
               numberOfLines={2}
               value={values.description}
-              onChangeText={handleChange("description")}
-              onBlur={() => setFieldTouched("description")}
-            />
-            <ErrorMessage
-              error={errors.description || ""}
-              visible={touched.description}
             />
 
             <SubmitButton title="Post" />
