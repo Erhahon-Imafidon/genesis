@@ -8,6 +8,7 @@ type AppFormPickerProps = {
   inputName: string;
   placeholder: string;
   width?: DimensionValue;
+  PickerItemComponent?: React.FC<any>;
 };
 
 // Type guard to check if an object is of type Category
@@ -20,6 +21,7 @@ const AppFormPicker = ({
   inputName,
   placeholder,
   width,
+  PickerItemComponent,
 }: AppFormPickerProps) => {
   const { errors, setFieldValue, touched, values } =
     useFormikContext<FormikErrors<any>>();
@@ -39,6 +41,7 @@ const AppFormPicker = ({
         onSelectItem={(item) => setFieldValue(inputName, item)}
         selectedItem={isCategory(selectedItem) ? selectedItem : undefined}
         width={width}
+        PickerItemComponent={PickerItemComponent}
       />
       <ErrorMessage error={error || ""} visible={visible} />
     </>

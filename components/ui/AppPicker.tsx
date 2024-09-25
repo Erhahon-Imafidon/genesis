@@ -28,6 +28,7 @@ type AppPickerProp = {
   items?: Category[];
   selectedItem?: Category;
   onSelectItem?: (item: any) => void;
+  PickerItemComponent?: React.FC<any>;
 };
 
 const AppPicker: React.FC<AppPickerProp> = ({
@@ -39,6 +40,7 @@ const AppPicker: React.FC<AppPickerProp> = ({
   width = "100%",
   selectedItem,
   onSelectItem,
+  PickerItemComponent = PickerItem,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -80,7 +82,7 @@ const AppPicker: React.FC<AppPickerProp> = ({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
                 onPress={() => handleSelectItem(item)}
               />
