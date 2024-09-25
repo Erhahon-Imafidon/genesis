@@ -10,7 +10,8 @@ const initialMessage: MessageUser[] = [
   {
     id: 1,
     title: "T1",
-    description: "D1",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam corporis debitis dolorum eligendi est illum itaque labore nam nobis non perspiciatis porro quisquam quod, quos reiciendis repellat sapiente sequi vero.",
     image: require("../assets/images/imafidon.jpeg"),
   },
   {

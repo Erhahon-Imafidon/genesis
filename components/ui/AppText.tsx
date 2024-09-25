@@ -4,8 +4,12 @@ interface AppTextProps extends TextProps {
   children: React.ReactNode;
 }
 
-const AppText = ({ children, style }: AppTextProps) => {
-  return <Text style={[styles.defaultStyle, style]}>{children}</Text>;
+const AppText = ({ children, style, ...otherProps }: AppTextProps) => {
+  return (
+    <Text style={[styles.defaultStyle, style]} {...otherProps}>
+      {children}
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({
