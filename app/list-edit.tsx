@@ -40,12 +40,14 @@ const ListEditScreen = () => {
           placeholder="Price"
           keyboardType="numeric"
           maxLength={8}
+          width="50%"
         />
 
         <AppFormPicker
           items={categories}
           inputName="category"
           placeholder="Category"
+          width="50%"
         />
 
         <AppFormField

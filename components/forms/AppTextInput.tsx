@@ -1,4 +1,4 @@
-import { View, TextInput, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet, DimensionValue } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "@/constants/styles";
 
@@ -6,16 +6,18 @@ type AppInputProp = {
   name?: keyof typeof MaterialCommunityIcons.glyphMap;
   size?: number;
   color?: string;
+  width?: DimensionValue;
 } & React.ComponentProps<typeof TextInput>;
 
 const AppTextInput: React.FC<AppInputProp> = ({
   name,
   size = 25,
   color = defaultStyles.text.color,
+  width = "100%",
   ...otherProps
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { width }]}>
       {name && (
         <MaterialCommunityIcons
           name={name}
@@ -37,7 +39,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    width: "100%",
     backgroundColor: "#f8f4f4",
     borderRadius: 25,
     padding: 15,

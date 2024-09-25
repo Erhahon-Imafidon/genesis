@@ -4,6 +4,7 @@ import {
   TouchableWithoutFeedback,
   Modal,
   FlatList,
+  DimensionValue,
 } from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -22,6 +23,7 @@ type AppPickerProp = {
   name?: keyof typeof MaterialCommunityIcons.glyphMap;
   size?: number;
   color?: string;
+  width?: DimensionValue;
   placeholder?: React.ReactNode;
   items?: Category[];
   selectedItem?: Category;
@@ -34,6 +36,7 @@ const AppPicker: React.FC<AppPickerProp> = ({
   color,
   placeholder,
   items,
+  width = "100%",
   selectedItem,
   onSelectItem,
 }) => {
@@ -47,7 +50,7 @@ const AppPicker: React.FC<AppPickerProp> = ({
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {name && (
             <MaterialCommunityIcons
               name={name}
@@ -93,7 +96,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    width: "100%",
     backgroundColor: "#f8f4f4",
     borderRadius: 25,
     padding: 15,

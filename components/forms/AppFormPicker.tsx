@@ -1,3 +1,4 @@
+import { DimensionValue } from "react-native";
 import AppPicker, { Category } from "@/components/ui/AppPicker";
 import ErrorMessage from "@/components/forms/ErrorMessage";
 import { FormikErrors, useFormikContext } from "formik";
@@ -6,6 +7,7 @@ type AppFormPickerProps = {
   items: any[];
   inputName: string;
   placeholder: string;
+  width?: DimensionValue;
 };
 
 // Type guard to check if an object is of type Category
@@ -17,6 +19,7 @@ const AppFormPicker = ({
   items,
   inputName,
   placeholder,
+  width,
 }: AppFormPickerProps) => {
   const { errors, setFieldValue, touched, values } =
     useFormikContext<FormikErrors<any>>();
@@ -35,6 +38,7 @@ const AppFormPicker = ({
         placeholder={placeholder}
         onSelectItem={(item) => setFieldValue(inputName, item)}
         selectedItem={isCategory(selectedItem) ? selectedItem : undefined}
+        width={width}
       />
       <ErrorMessage error={error || ""} visible={visible} />
     </>
