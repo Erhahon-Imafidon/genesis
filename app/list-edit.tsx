@@ -16,9 +16,14 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories: Category[] = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Camera", value: 3 },
+  {
+    label: "Furniture",
+    value: 1,
+    backgroundColor: "red",
+    name: "apps",
+  },
+  { label: "Clothing", value: 2, backgroundColor: "blue", name: "email" },
+  { label: "Camera", value: 3, backgroundColor: "gray", name: "lock" },
 ];
 
 const ListEditScreen = () => {

@@ -6,7 +6,7 @@ import {
   FlatList,
   DimensionValue,
 } from "react-native";
-import { useState } from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "@/components/ui/AppText";
@@ -17,6 +17,9 @@ import PickerItem from "@/components/ui/PickerItem";
 export type Category = {
   label: string;
   value: number;
+  backgroundColor?: string;
+  name?: string;
+  color?: string;
 };
 
 type AppPickerProp = {
@@ -83,6 +86,7 @@ const AppPicker: React.FC<AppPickerProp> = ({
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
               <PickerItemComponent
+                item={item}
                 label={item.label}
                 onPress={() => handleSelectItem(item)}
               />

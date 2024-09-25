@@ -2,6 +2,7 @@ import { DimensionValue } from "react-native";
 import AppPicker, { Category } from "@/components/ui/AppPicker";
 import ErrorMessage from "@/components/forms/ErrorMessage";
 import { FormikErrors, useFormikContext } from "formik";
+import React from "react";
 
 type AppFormPickerProps = {
   items: any[];
