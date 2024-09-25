@@ -16,22 +16,22 @@ const HomeScreen = () => {
           style={styles.logo}
         />
         <Text style={styles.text}>Sell what you don't need</Text>
-
         <Link href="/listings">Listings Screen</Link>
         <Link href="/details">View Details Screen</Link>
-        <Link style={{ marginTop: 5 }} href="/account">
-          Account Screen
+        <Link style={{ marginTop: 5 }} href="/messages">
+          Messages Screen
         </Link>
         <Link style={{ marginTop: 5 }} href="/list-edit">
           List Edit Screen
         </Link>
-
+        <Link style={{ marginTop: 5 }} href="/account">
+          Account Screen
+        </Link>
         <View style={styles.login}>
           <Link href={"/login"} asChild>
             <AppButton title={"Login"} />
           </Link>
         </View>
-
         <View style={styles.register}>
           <Link href="/register" asChild>
             <AppButton title={"Register"} color="secondary" />
