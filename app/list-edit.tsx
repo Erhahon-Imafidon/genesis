@@ -1,12 +1,11 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
-import { Formik } from "formik";
 import * as Yup from "yup";
 import { Category } from "@/components/ui/AppPicker";
-import AppTextInput from "@/components/forms/AppTextInput";
 import SubmitButton from "@/components/forms/SubmitButton";
-import ErrorMessage from "@/components/forms/ErrorMessage";
 import AppFormPicker from "@/components/forms/AppFormPicker";
+import AppForm from "@/components/forms/AppForm";
+import AppFormField from "@/components/forms/AppFormField";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -24,7 +23,7 @@ const categories: Category[] = [
 const ListEditScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Formik
+      <AppForm
         initialValues={{
           title: "",
           price: "",
@@ -34,45 +33,31 @@ const ListEditScreen = () => {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, values, setFieldTouched, touched, errors }) => (
-          <>
-            <AppTextInput
-              placeholder="Title"
-              maxLength={255}
-              onChangeText={handleChange("title")}
-              value={values.title}
-              onBlur={() => setFieldTouched("title")}
-            />
-            <ErrorMessage error={errors.title || ""} visible={touched.title} />
+        <AppFormField placeholder="Title" inputName={"title"} maxLength={255} />
 
-            <AppTextInput
-              placeholder="Price"
-              keyboardType="numeric"
-              maxLength={8}
-              value={values.price}
-              onChangeText={handleChange("price")}
-              onBlur={() => setFieldTouched("price")}
-            />
-            <ErrorMessage error={errors.price || ""} visible={touched.price} />
+        <AppFormField
+          inputName={"price"}
+          placeholder="Price"
+          keyboardType="numeric"
+          maxLength={8}
+        />
 
-            <AppFormPicker
-              items={categories}
-              inputName="category"
-              placeholder="Category"
-            />
+        <AppFormPicker
+          items={categories}
+          inputName="category"
+          placeholder="Category"
+        />
 
-            <AppTextInput
-              placeholder="Description"
-              maxLength={255}
-              multiline
-              numberOfLines={2}
-              value={values.description}
-            />
+        <AppFormField
+          inputName={"description"}
+          placeholder="Description"
+          maxLength={255}
+          multiline
+          numberOfLines={2}
+        />
 
-            <SubmitButton title="Post" />
-          </>
-        )}
-      </Formik>
+        <SubmitButton title="Post" />
+      </AppForm>
     </SafeAreaView>
   );
 };

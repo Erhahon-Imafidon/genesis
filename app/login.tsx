@@ -7,7 +7,7 @@ import AppFormField from "@/components/forms/AppFormField";
 import AppForm from "@/components/forms/AppForm";
 import Colors from "@/constants/Colors";
 
-const valdidationSchema = Yup.object().shape({
+const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   pwd: Yup.string().required().min(6).label("Password"),
 });
@@ -22,7 +22,7 @@ const LoginScreen = () => {
       <AppForm
         initialValues={{ email: "", pwd: "" }}
         onSubmit={(values) => console.log(values)}
-        validationSchema={valdidationSchema}
+        validationSchema={validationSchema}
       >
         <AppFormField
           name="email"
