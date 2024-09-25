@@ -24,7 +24,11 @@ const AppTextInput: React.FC<AppInputProp> = ({
           style={{ marginRight: 10 }}
         />
       )}
-      <TextInput style={[defaultStyles.text, { flex: 1 }]} {...otherProps} />
+      <TextInput
+        placeholderTextColor={defaultStyles.Colors.mediumGray}
+        style={[defaultStyles.text, { flex: 1 }]}
+        {...otherProps}
+      />
     </View>
   );
 };
