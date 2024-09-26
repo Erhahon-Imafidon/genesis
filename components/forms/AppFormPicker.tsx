@@ -8,6 +8,7 @@ type AppFormPickerProps = {
   items: any[];
   inputName: string;
   placeholder: string;
+  numberOfColumns?: number;
   width?: DimensionValue;
   PickerItemComponent?: React.FC<any>;
 };
@@ -23,6 +24,7 @@ const AppFormPicker = ({
   placeholder,
   width,
   PickerItemComponent,
+  numberOfColumns,
 }: AppFormPickerProps) => {
   const { errors, setFieldValue, touched, values } =
     useFormikContext<FormikErrors<any>>();
@@ -41,6 +43,7 @@ const AppFormPicker = ({
         placeholder={placeholder}
         onSelectItem={(item) => setFieldValue(inputName, item)}
         selectedItem={isCategory(selectedItem) ? selectedItem : undefined}
+        numberOfColumns={numberOfColumns}
         width={width}
         PickerItemComponent={PickerItemComponent}
       />

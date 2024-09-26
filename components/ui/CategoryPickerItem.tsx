@@ -9,17 +9,29 @@ const CategoryPickerItem: React.FC<PickerItemProps> = ({
   onPress,
 }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Icons
         backgroundColor={item.backgroundColor}
         name={item.name}
         size={60}
       />
-      <AppText>{label}</AppText>
+      <AppText style={styles.label}>{label}</AppText>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    alignItems: "center",
+    width: "33%",
+  },
+
+  label: {
+    marginTop: 5,
+    textAlign: "center",
+  },
+});
 
 export default CategoryPickerItem;

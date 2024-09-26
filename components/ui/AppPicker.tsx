@@ -32,6 +32,7 @@ type AppPickerProp = {
   selectedItem?: Category;
   onSelectItem?: (item: any) => void;
   PickerItemComponent?: React.FC<any>;
+  numberOfColumns?: number;
 };
 
 const AppPicker: React.FC<AppPickerProp> = ({
@@ -43,6 +44,7 @@ const AppPicker: React.FC<AppPickerProp> = ({
   width = "100%",
   selectedItem,
   onSelectItem,
+  numberOfColumns,
   PickerItemComponent = PickerItem,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -84,6 +86,8 @@ const AppPicker: React.FC<AppPickerProp> = ({
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
+            numColumns={numberOfColumns}
+            key={numberOfColumns}
             renderItem={({ item }) => (
               <PickerItemComponent
                 item={item}
