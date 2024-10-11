@@ -4,6 +4,7 @@ module.exports = {
   plugins: ["prettier"],
   rules: {
     "prettier/prettier": "error",
-    "no-console": "warn",
+    quotes: ["error", "single"],
+    "no-console": ["warn", { allow: ["warn", "error"] }],
   },
 };
