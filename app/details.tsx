@@ -1,4 +1,4 @@
-import { Image, View, StyleSheet, Switch } from "react-native";
+import { Image, View, StyleSheet } from "react-native";
 import { useState } from "react";
 import AppText from "@/components/ui/AppText";
 import Colors from "@/constants/Colors";
