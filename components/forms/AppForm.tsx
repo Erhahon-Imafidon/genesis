@@ -1,28 +1,28 @@
-import { Formik } from "formik";
-import * as Yup from "yup";
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 interface AppFormProps {
-  initialValues: object;
-  onSubmit: (values: object) => void;
-  validationSchema: Yup.ObjectSchema<object>;
-  children: React.ReactNode;
+    initialValues: object;
+    onSubmit: (values: object) => void;
+    validationSchema: Yup.ObjectSchema<object>;
+    children: React.ReactNode;
 }
 
 const AppForm = ({
-  initialValues,
-  onSubmit,
-  validationSchema,
-  children,
+    initialValues,
+    onSubmit,
+    validationSchema,
+    children,
 }: AppFormProps) => {
-  return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={validationSchema}
-    >
-      {() => <>{children}</>}
-    </Formik>
-  );
+    return (
+        <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            validationSchema={validationSchema}
+        >
+            {() => <>{children}</>}
+        </Formik>
+    );
 };
 
 export default AppForm;
