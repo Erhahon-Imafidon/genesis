@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
 import AppText from '@/components/ui/AppText';
-import ImageInput from '@/components/ui/ImageInput';
 import ImageInputList from '@/components/lists/ImageInputList';
 
 const Permissions = () => {
@@ -16,9 +15,7 @@ const Permissions = () => {
 
     const handleRemove = (uri: string | null) => {
         if (uri) {
-            setImageUris(
-                imageUris.filter((imageUri: string) => imageUri !== uri)
-            );
+            setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
         }
     };
 
