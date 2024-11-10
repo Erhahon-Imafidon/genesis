@@ -11,7 +11,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Colors from '@/constants/Colors';
 
 type ImageInputProps = {
-    imageUri: string;
+    imageUri?: string;
     onChangeImage: (uri: string | null) => void;
 };
 
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         height: 100,
         width: 100,
+        marginRight: 10,
     },
     image: {
         width: '100%',

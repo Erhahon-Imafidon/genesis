@@ -3,17 +3,33 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
 import AppText from '@/components/ui/AppText';
 import ImageInput from '@/components/ui/ImageInput';
+import ImageInputList from '@/components/lists/ImageInputList';
 
 const Permissions = () => {
-    const [image, setImage] = useState<string | null>(null);
+    const [imageUris, setImageUris] = useState<string[]>([]);
+
+    const handleAdd = (uri: string | null) => {
+        if (uri) {
+            setImageUris([...imageUris, uri]);
+        }
+    };
+
+    const handleRemove = (uri: string | null) => {
+        if (uri) {
+            setImageUris(
+                imageUris.filter((imageUri: string) => imageUri !== uri)
+            );
+        }
+    };
 
     return (
         <SafeAreaView style={styles.container}>
             <AppText style={{ marginBottom: 10 }}>Permissions</AppText>
 
-            <ImageInput
-                imageUri={image || ''}
-                onChangeImage={(uri) => setImage(uri)}
+            <ImageInputList
+                imageUris={imageUris}
+                onRemoveImage={handleRemove}
+                onAddImage={handleAdd}
             />
         </SafeAreaView>
     );
