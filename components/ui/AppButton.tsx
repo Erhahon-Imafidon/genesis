@@ -8,17 +8,18 @@ type ButtonProps = {
     title: string;
     color?: ColorsKeys;
     onPress?: () => void;
+    style?: any;
 };
 
 const AppButton: React.FC<ButtonProps> = forwardRef<
     TouchableOpacity,
     ButtonProps
->(({ title, onPress, color = 'primary' }, ref) => {
+>(({ title, onPress, style, color = 'primary' }, ref) => {
     return (
         <TouchableOpacity
             ref={ref}
             onPress={onPress}
-            style={[styles.button, { backgroundColor: Colors[color] }]}
+            style={[styles.button, style, { backgroundColor: Colors[color] }]}
         >
             <Text style={styles.buttonText}>{title}</Text>
         </TouchableOpacity>
