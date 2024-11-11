@@ -1,8 +1,6 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
-import * as Location from 'expo-location';
 
 import { categories } from '@/lib/data';
 import SubmitButton from '@/components/forms/SubmitButton';
@@ -11,6 +9,7 @@ import AppForm from '@/components/forms/AppForm';
 import AppFormField from '@/components/forms/AppFormField';
 import CategoryPickerItem from '@/components/ui/CategoryPickerItem';
 import ImageFormPicker from '@/components/forms/ImageFormPicker';
+import useLocation from '@/hooks/useLocation';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label('Title'),
@@ -21,22 +20,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListEditScreen = () => {
-    const [location, setLocation] = useState<object | null>(null);
-
-    const getLocation = async () => {
-        const { granted } = await Location.requestForegroundPermissionsAsync();
-        if (!granted) return;
-
-        let result = await Location.getLastKnownPositionAsync();
-        if (result?.coords) {
-            const { latitude, longitude } = result.coords;
-            setLocation({ latitude, longitude });
-        }
-    };
-
-    useEffect(() => {
-        getLocation();
-    }, []);
+    const { location, errMsg } = useLocation();
 
     return (
         <SafeAreaView style={styles.container}>
@@ -49,7 +33,7 @@ const ListEditScreen = () => {
                     images: [],
                 }}
                 onSubmit={(values) =>
-                    console.log(values, 'location:', location)
+                    console.log(values, 'location:', location, 'error:', errMsg)
                 }
                 validationSchema={validationSchema}
             >
