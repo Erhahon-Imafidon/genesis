@@ -1,4 +1,5 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
 import * as Location from 'expo-location';
@@ -20,6 +21,23 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListEditScreen = () => {
+    const [location, setLocation] = useState<object | null>(null);
+
+    const getLocation = async () => {
+        const { granted } = await Location.requestForegroundPermissionsAsync();
+        if (!granted) return;
+
+        let result = await Location.getLastKnownPositionAsync();
+        if (result?.coords) {
+            const { latitude, longitude } = result.coords;
+            setLocation({ latitude, longitude });
+        }
+    };
+
+    useEffect(() => {
+        getLocation();
+    }, []);
+
     return (
         <SafeAreaView style={styles.container}>
             <AppForm
@@ -30,7 +48,9 @@ const ListEditScreen = () => {
                     category: null,
                     images: [],
                 }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) =>
+                    console.log(values, 'location:', location)
+                }
                 validationSchema={validationSchema}
             >
                 <ImageFormPicker name="images" />
