@@ -37,12 +37,6 @@ const HomeScreen = () => {
                         <AppButton title={'Register'} color="secondary" />
                     </Link>
                 </View>
-
-                <View style={styles.login}>
-                    <Link href={'/permissions'} asChild>
-                        <AppButton title={'Permissions'} />
-                    </Link>
-                </View>
             </ImageBackground>
         </View>
     );
