@@ -1,6 +1,7 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
+import * as Location from 'expo-location';
 
 import { categories } from '@/lib/data';
 import SubmitButton from '@/components/forms/SubmitButton';

@@ -28,7 +28,7 @@ const AppFormPicker = ({
     PickerItemComponent,
     numberOfColumns,
 }: AppFormPickerProps) => {
-    const { errors, setFieldValue, touched, values } =
+    const { errors, setFieldValue, setFieldTouched, touched, values } =
         useFormikContext<FormikErrors<any>>();
 
     const error =
@@ -41,12 +41,17 @@ const AppFormPicker = ({
         ? values[inputName]
         : undefined;
 
+    const handleSelectItem = async (item: any) => {
+        await setFieldValue(inputName, item);
+        await setFieldTouched(inputName, true, true);
+    };
+
     return (
         <>
             <AppPicker
                 items={items}
                 placeholder={placeholder}
-                onSelectItem={(item) => setFieldValue(inputName, item)}
+                onSelectItem={handleSelectItem}
                 selectedItem={
                     isCategory(selectedItem) ? selectedItem : undefined
                 }
