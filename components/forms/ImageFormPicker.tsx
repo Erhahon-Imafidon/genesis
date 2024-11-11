@@ -7,30 +7,35 @@ type ImagePickerProps = {
 };
 
 const ImageFormPicker = ({ name }: ImagePickerProps) => {
-    const { values, errors, touched, setFieldValue } = useFormikContext<{
-        [key: string]: string[];
-    }>();
+    const { values, errors, touched, setFieldValue, setFieldTouched } =
+        useFormikContext<{
+            [key: string]: string[];
+        }>();
 
     const error = Array.isArray(errors[name])
         ? (errors[name] as string[]).join(', ')
         : (errors[name] as string) || '';
 
-    const visible = typeof touched[name] === 'boolean' ? touched[name] : false;
+    const visible = !!touched[name]; // Simplified true : false
 
     const imageUris = Array.isArray(values[name]) ? values[name] : [];
 
-    const handleAdd = (uri: string | null) => {
+    const handleAdd = async (uri: string | null) => {
         if (uri) {
-            setFieldValue(name, [...values[name], uri]);
+            await setFieldValue(name, [...(values[name] as string[]), uri]);
+            await setFieldTouched(name, true);
         }
     };
 
-    const handleRemove = (uri: string | null) => {
+    const handleRemove = async (uri: string | null) => {
         if (uri) {
-            setFieldValue(
+            await setFieldValue(
                 name,
-                values[name].filter((imageUri) => imageUri !== uri)
+                (values[name] as string[]).filter(
+                    (imageUri) => imageUri !== uri
+                )
             );
+            await setFieldTouched(name, true);
         }
     };
 

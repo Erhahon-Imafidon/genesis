@@ -33,8 +33,10 @@ const AppFormPicker = ({
 
     const error =
         typeof errors[inputName] === 'string' ? errors[inputName] : '';
-    const visible =
-        typeof touched[inputName] === 'boolean' ? touched[inputName] : false;
+
+    // const visible = typeof touched[inputName] === 'boolean' ? touched[inputName] : false;
+    const visible = !!touched[inputName]; // Simplified version of the code above
+
     const selectedItem = isCategory(values[inputName])
         ? values[inputName]
         : undefined;
