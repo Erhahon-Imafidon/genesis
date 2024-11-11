@@ -12,8 +12,8 @@ const ImageFormPicker = ({ name }: ImagePickerProps) => {
     }>();
 
     const error = Array.isArray(errors[name])
-        ? errors[name]?.join(', ')
-        : errors[name] || '';
+        ? (errors[name] as string[]).join(', ')
+        : (errors[name] as string) || '';
 
     const visible = typeof touched[name] === 'boolean' ? touched[name] : false;
 
