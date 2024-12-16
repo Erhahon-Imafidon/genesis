@@ -9,15 +9,8 @@ const RootLayout = () => {
                     headerShown: false,
                 }}
             >
-                <Stack.Screen name="index" />
-                <Stack.Screen name="imageviewer" />
-                <Stack.Screen name="details" />
-                <Stack.Screen name="messages" />
-                <Stack.Screen name="account" />
-                <Stack.Screen name="listings" />
-                <Stack.Screen name="list-edit" />
-                <Stack.Screen name="login" />
-                <Stack.Screen name="register" />
+                <Stack.Screen name="(tabs)" />
+                <Stack.Screen name="+not-found" />
             </Stack>
         </SafeAreaProvider>
     );

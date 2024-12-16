@@ -16,7 +16,7 @@ const HomeScreen = () => {
                     style={styles.logo}
                 />
                 <Text style={styles.text}>Sell what you don't need</Text>
-                <Link href="/listings">Listings Screen</Link>
+                <Link href="/(tabs)/listings">Listings Screen</Link>
                 <Link href="/details">View Details Screen</Link>
                 <Link style={{ marginTop: 5 }} href="/messages">
                     Messages Screen
@@ -24,7 +24,7 @@ const HomeScreen = () => {
                 <Link style={{ marginTop: 5 }} href="/list-edit">
                     List Edit Screen
                 </Link>
-                <Link style={{ marginTop: 5 }} href="/account">
+                <Link style={{ marginTop: 5 }} href="/(tabs)/account">
                     Account Screen
                 </Link>
                 <View style={styles.login}>

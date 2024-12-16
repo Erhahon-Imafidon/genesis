@@ -9,13 +9,13 @@ const listings: MessageUser[] = [
         id: 1,
         title: 'Red jacket for sale',
         price: 100,
-        image: require('../assets/images/jacket.jpg'),
+        image: require('../../assets/images/jacket.jpg'),
     },
     {
         id: 2,
         title: 'Couch in Great Condition',
         price: 1000,
-        image: require('../assets/images/couch.jpg'),
+        image: require('../../assets/images/couch.jpg'),
     },
 ];
 
