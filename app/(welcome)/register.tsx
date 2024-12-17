@@ -34,7 +34,7 @@ const RegisterScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Image
-                source={require('../assets/images/logo-red.png')}
+                source={require('../../assets/images/logo-red.png')}
                 style={styles.logo}
             />
             <Formik

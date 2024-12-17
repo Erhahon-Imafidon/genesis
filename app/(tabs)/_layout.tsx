@@ -8,6 +8,12 @@ const TabBarLayout = () => {
                 tabBarActiveTintColor: 'tomato',
                 tabBarInactiveTintColor: 'gray',
                 headerShown: false,
+                tabBarStyle: {
+                    paddingBottom: 10,
+                    height: 70,
+                    borderBottomRightRadius: 20,
+                    borderBottomLeftRadius: 20,
+                },
             }}
         >
             <Tabs.Screen

@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
 import { Link } from 'expo-router';
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 import AppButton from '@/components/ui/AppButton';
 
 const HomeScreen = () => {
@@ -9,24 +9,14 @@ const HomeScreen = () => {
             <ImageBackground
                 blurRadius={10}
                 style={styles.background}
-                source={require('../assets/images/background.jpg')}
+                source={require('../../assets/images/background.jpg')}
             >
                 <Image
-                    source={require('../assets/images/logo-red.png')}
+                    source={require('../../assets/images/logo-red.png')}
                     style={styles.logo}
                 />
                 <Text style={styles.text}>Sell what you don't need</Text>
-                <Link href="/(tabs)/listings">Listings Screen</Link>
-                <Link href="/details">View Details Screen</Link>
-                <Link style={{ marginTop: 5 }} href="/messages">
-                    Messages Screen
-                </Link>
-                <Link style={{ marginTop: 5 }} href="/list-edit">
-                    List Edit Screen
-                </Link>
-                <Link style={{ marginTop: 5 }} href="/(tabs)/account">
-                    Account Screen
-                </Link>
+
                 <View style={styles.login}>
                     <Link href={'/login'} asChild>
                         <AppButton title={'Login'} />
