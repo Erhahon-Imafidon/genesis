@@ -12,7 +12,7 @@ const RootLayout = () => {
                         headerShown: false,
                     }}
                 >
-                    <Stack.Screen name="(welcome)" />
+                    <Stack.Screen name="(home)" />
                     <Stack.Screen name="(tabs)" />
                     <Stack.Screen name="+not-found" />
                 </Stack>
