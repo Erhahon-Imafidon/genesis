@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react';
 import { Image, View, StyleSheet } from 'react-native';
-import { useState } from 'react';
+import { useLocalSearchParams } from 'expo-router';
 import AppText from '@/components/ui/AppText';
 import Colors from '@/constants/Colors';
 import AppTextInput from '@/components/forms/AppTextInput';
@@ -12,20 +13,45 @@ const categories = [
     { label: 'Camera', value: 3 },
 ];
 
+const listings = [
+    {
+        id: 1,
+        title: 'Red jacket for sale',
+        price: 100,
+        image: require('../../../assets/images/jacket.jpg'),
+    },
+    {
+        id: 2,
+        title: 'Couch in Great Condition',
+        price: 1000,
+        image: require('../../../assets/images/couch.jpg'),
+    },
+];
+
 const ListingDetailsScreen = () => {
     const [category, setCategory] = useState<Category | undefined>(
         categories[0]
     );
+    const [listing, setListing] = useState<MessageUser | null>(null);
+    const { id } = useLocalSearchParams<{ id: string }>();
+
+    useEffect(() => {
+        const selectedListing = listings.find(
+            (item) => item.id.toString() === id
+        );
+        setListing(selectedListing);
+    }, [id]);
+
+    if (!listing) {
+        return <AppText>Loading...</AppText>;
+    }
 
     return (
         <View style={styles.container}>
-            <Image
-                style={styles.image}
-                source={require('../../../assets/images/jacket.jpg')}
-            />
+            <Image style={styles.image} source={listing.image} />
             <View style={styles.detailsContainer}>
-                <AppText style={styles.title}>Chair for Sale</AppText>
-                <AppText style={styles.price}>#5000</AppText>
+                <AppText style={styles.title}>{listing.title}</AppText>
+                <AppText style={styles.price}>#{listing.price}</AppText>
             </View>
 
             <AppPicker

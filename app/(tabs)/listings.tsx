@@ -1,5 +1,6 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlatList, StyleSheet } from 'react-native';
+import { router } from 'expo-router';
 import { MessageUser } from '@/lib/definitions';
 import Colors from '@/constants/Colors';
 import Card from '@/components/ui/Card';
@@ -24,12 +25,18 @@ const ListingsScreen = () => {
         <SafeAreaView style={styles.screen}>
             <FlatList
                 data={listings}
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item) => item.id!.toString()}
                 renderItem={({ item }) => (
                     <Card
                         title={item.title}
                         image={item.image}
-                        subTitle={'₦' + item.price}
+                        price={'₦' + item.price}
+                        onPress={() =>
+                            router.push({
+                                pathname: '../details/[id]',
+                                params: { id: item.id },
+                            })
+                        }
                     />
                 )}
             />

@@ -10,9 +10,10 @@ export type User = {
 };
 
 export type MessageUser = {
-    id: number;
+    id?: number | string;
     title: string;
     description?: string;
     price?: number | string;
     image: ReturnType<typeof require>; // If you want the require function to be used in the image prop so you don't have to use require in the component
+    onPress?: () => void;
 };

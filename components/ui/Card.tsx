@@ -6,16 +6,16 @@ import {
 } from 'react-native';
 import Colors from '@/constants/Colors';
 import AppText from '@/components/ui/AppText';
-import { User } from '@/lib/definitions';
+import { MessageUser } from '@/lib/definitions';
 
-const Card = ({ image, title, subTitle, onPress }: User) => {
+const Card = ({ image, title, price, onPress }: MessageUser) => {
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.card}>
                 <Image source={image} style={styles.image} />
                 <View style={styles.textContainer}>
                     <AppText style={styles.title}>{title}</AppText>
-                    <AppText style={styles.subTitle}>{subTitle}</AppText>
+                    <AppText style={styles.subTitle}>{price}</AppText>
                 </View>
             </View>
         </TouchableWithoutFeedback>
