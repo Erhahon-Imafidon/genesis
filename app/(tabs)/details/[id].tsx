@@ -7,6 +7,7 @@ import AppTextInput from '@/components/forms/AppTextInput';
 import AppPicker from '@/components/ui/AppPicker';
 import { Category } from '@/components/ui/AppPicker';
 import { listings } from '@/lib/data';
+import { MessageUser } from '@/lib/definitions';
 
 const categories = [
     { label: 'Furniture', value: 1 },
@@ -22,9 +23,8 @@ const ListingDetailsScreen = () => {
     const { id } = useLocalSearchParams<{ id: string }>();
 
     useEffect(() => {
-        const selectedListing = listings.find(
-            (item) => item.id.toString() === id
-        );
+        const selectedListing =
+            listings.find((item) => item.id?.toString() === id) || null;
         setListing(selectedListing);
     }, [id]);
 
