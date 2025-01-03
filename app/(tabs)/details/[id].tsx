@@ -21,7 +21,7 @@ const ListingDetailsScreen = () => {
         <View style={styles.container}>
             <Image
                 style={styles.image}
-                source={require('../assets/images/jacket.jpg')}
+                source={require('../../../assets/images/jacket.jpg')}
             />
             <View style={styles.detailsContainer}>
                 <AppText style={styles.title}>Chair for Sale</AppText>

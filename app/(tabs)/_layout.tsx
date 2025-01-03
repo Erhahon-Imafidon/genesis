@@ -43,6 +43,14 @@ const TabBarLayout = () => {
                     ),
                 }}
             />
+
+            <Tabs.Screen
+                name="details/[id]"
+                options={{
+                    title: 'Details',
+                    href: null,
+                }}
+            />
         </Tabs>
     );
 };
