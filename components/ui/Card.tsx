@@ -1,17 +1,24 @@
-import { View, Image, StyleSheet } from 'react-native';
+import {
+    View,
+    Image,
+    StyleSheet,
+    TouchableWithoutFeedback,
+} from 'react-native';
 import Colors from '@/constants/Colors';
 import AppText from '@/components/ui/AppText';
 import { User } from '@/lib/definitions';
 
-const Card = ({ image, title, subTitle }: User) => {
+const Card = ({ image, title, subTitle, onPress }: User) => {
     return (
-        <View style={styles.card}>
-            <Image source={image} style={styles.image} />
-            <View style={styles.textContainer}>
-                <AppText style={styles.title}>{title}</AppText>
-                <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <TouchableWithoutFeedback onPress={onPress}>
+            <View style={styles.card}>
+                <Image source={image} style={styles.image} />
+                <View style={styles.textContainer}>
+                    <AppText style={styles.title}>{title}</AppText>
+                    <AppText style={styles.subTitle}>{subTitle}</AppText>
+                </View>
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     );
 };
 
