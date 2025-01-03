@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { Formik, FormikProps } from 'formik';
 import * as Yup from 'yup';
+import { router } from 'expo-router';
 
 import AppTextInput from '@/components/forms/AppTextInput';
 import ErrorMessage from '@/components/forms/ErrorMessage';
@@ -39,7 +40,10 @@ const RegisterScreen = () => {
             />
             <Formik
                 initialValues={{ email: '', pwd: '', name: '' }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) => {
+                    router.push('/login');
+                    console.log(values);
+                }}
                 validationSchema={valdidationSchema}
             >
                 {/*Used the FormikProps from formik to ensure that handleSubmit is correctly typed without needing to use as any.*/}

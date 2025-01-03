@@ -1,6 +1,7 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet, Image } from 'react-native';
 import * as Yup from 'yup';
+import { router } from 'expo-router';
 
 import SubmitButton from '@/components/forms/SubmitButton';
 import AppFormField from '@/components/forms/AppFormField';
@@ -21,7 +22,10 @@ const LoginScreen = () => {
             />
             <AppForm
                 initialValues={{ email: '', pwd: '' }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) => {
+                    router.push('/(tabs)/listings');
+                    console.log(values);
+                }}
                 validationSchema={validationSchema}
             >
                 <AppFormField
