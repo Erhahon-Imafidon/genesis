@@ -33,7 +33,7 @@ const MessagesScreen = () => {
         <SafeAreaView style={styles.container}>
             <FlatList
                 data={messages}
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item) => item.id!.toString()}
                 renderItem={({ item }) => (
                     <ListItem
                         image={item.image}
@@ -42,7 +42,11 @@ const MessagesScreen = () => {
                         onPress={() => console.log('Message selected', item)}
                         renderRightActions={() => (
                             <ListDeleteAction
-                                onPress={() => handleDelete(item.id)}
+                                onPress={() => {
+                                    if (typeof item.id === 'number') {
+                                        handleDelete(item.id);
+                                    }
+                                }}
                             />
                         )}
                     />

@@ -31,6 +31,20 @@ const TabBarLayout = () => {
             />
 
             <Tabs.Screen
+                name="list-edit"
+                options={{
+                    title: 'ListEdit',
+                    tabBarIcon: ({ size, color }) => (
+                        <MaterialCommunityIcons
+                            name="account"
+                            size={size}
+                            color={color}
+                        />
+                    ),
+                }}
+            />
+
+            <Tabs.Screen
                 name="account"
                 options={{
                     title: 'Account',
