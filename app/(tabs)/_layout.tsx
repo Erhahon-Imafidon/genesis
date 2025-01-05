@@ -1,5 +1,6 @@
-import { Tabs } from 'expo-router';
+import { router, Tabs } from 'expo-router';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import ListingButton from '@/components/navigation/ListingButton';
 
 const TabBarLayout = () => {
     return (
@@ -11,8 +12,7 @@ const TabBarLayout = () => {
                 tabBarStyle: {
                     paddingBottom: 10,
                     height: 70,
-                    borderBottomRightRadius: 20,
-                    borderBottomLeftRadius: 20,
+                    borderColor: 'white',
                 },
             }}
         >
@@ -34,9 +34,14 @@ const TabBarLayout = () => {
                 name="list-edit"
                 options={{
                     title: 'ListEdit',
+                    tabBarButton: ({ onPress }) => (
+                        <ListingButton
+                            onPress={() => router.push('/list-edit')}
+                        />
+                    ),
                     tabBarIcon: ({ size, color }) => (
                         <MaterialCommunityIcons
-                            name="account"
+                            name="plus-circle"
                             size={size}
                             color={color}
                         />
