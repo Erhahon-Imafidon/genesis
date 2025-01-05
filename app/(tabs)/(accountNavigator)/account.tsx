@@ -1,6 +1,6 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet, View, FlatList } from 'react-native';
-import { router } from 'expo-router';
+import { router, Href } from 'expo-router';
 import ItemListTwo from '@/components/lists/ItemListTwo';
 import ListItem from '@/components/lists/ListItem';
 import Colors from '@/constants/Colors';
@@ -10,7 +10,7 @@ import Separator from '@/components/lists/Separators';
 interface IMenuProps {
     title: string;
     icon: IconProps;
-    targetScreen?: string;
+    targetScreen?: Href<string>;
 }
 
 const menuItems: IMenuProps[] = [
@@ -20,7 +20,7 @@ const menuItems: IMenuProps[] = [
             name: 'format-list-bulleted',
             backgroundColor: Colors.primary,
         },
-        targetScreen: 'myListings',
+        targetScreen: '/myListings',
     },
     {
         title: 'My Messages',
