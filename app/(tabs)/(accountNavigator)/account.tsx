@@ -1,5 +1,6 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet, View, FlatList } from 'react-native';
+import { router } from 'expo-router';
 import ItemListTwo from '@/components/lists/ItemListTwo';
 import ListItem from '@/components/lists/ListItem';
 import Colors from '@/constants/Colors';
@@ -9,6 +10,7 @@ import Separator from '@/components/lists/Separators';
 interface IMenuProps {
     title: string;
     icon: IconProps;
+    targetScreen?: string;
 }
 
 const menuItems: IMenuProps[] = [
@@ -18,6 +20,7 @@ const menuItems: IMenuProps[] = [
             name: 'format-list-bulleted',
             backgroundColor: Colors.primary,
         },
+        targetScreen: 'myListings',
     },
     {
         title: 'My Messages',
@@ -25,6 +28,7 @@ const menuItems: IMenuProps[] = [
             name: 'email',
             backgroundColor: Colors.secondary,
         },
+        targetScreen: '/messages',
     },
 ];
 
@@ -51,6 +55,11 @@ const AccountScreen = () => {
                                     backgroundColor={item.icon.backgroundColor}
                                 />
                             )}
+                            onPress={() => {
+                                if (item.targetScreen) {
+                                    router.push(item.targetScreen);
+                                }
+                            }}
                         />
                     )}
                     ItemSeparatorComponent={Separator}

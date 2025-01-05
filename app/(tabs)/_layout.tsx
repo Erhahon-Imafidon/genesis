@@ -45,7 +45,7 @@ const TabBarLayout = () => {
             />
 
             <Tabs.Screen
-                name="account"
+                name="(accountNavigator)"
                 options={{
                     title: 'Account',
                     tabBarIcon: ({ size, color }) => (

@@ -12,13 +12,13 @@ const initialMessage: MessageUser[] = [
         title: 'Erhahon Imafidon',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam corporis debitis dolorum eligendi est illum itaque labore nam nobis non perspiciatis porro quisquam quod, quos reiciendis repellat sapiente sequi vero.',
-        image: require('../assets/images/imafidon.jpeg'),
+        image: require('@/assets/images/imafidon.jpeg'),
     },
     {
         id: 2,
         title: 'T2',
         description: 'D2',
-        image: require('../assets/images/imafidon.jpeg'),
+        image: require('@/assets/images/imafidon.jpeg'),
     },
 ];
 
@@ -59,7 +59,7 @@ const MessagesScreen = () => {
                             id: 2,
                             title: 'T2',
                             description: 'D2',
-                            image: require('../assets/images/imafidon.jpeg'),
+                            image: require('../../../assets/images/imafidon.jpeg'),
                         },
                     ]);
                 }}
