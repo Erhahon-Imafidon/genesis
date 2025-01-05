@@ -35,7 +35,7 @@ const AccountScreen = () => {
                 <ItemListTwo
                     title="Erhahon Imafidon"
                     subTitle="mafiosco4@gmail.com"
-                    image={require('../../assets/images/couch.jpg')}
+                    image={require('@/assets/images/imafidon.jpeg')}
                 />
             </View>
             <View style={styles.container}>
