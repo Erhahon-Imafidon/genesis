@@ -23,7 +23,7 @@ const LoginScreen = () => {
             <AppForm
                 initialValues={{ email: '', pwd: '' }}
                 onSubmit={(values) => {
-                    router.push('/(tabs)/listings');
+                    router.replace('/(tabs)/listings');
                     console.log(values);
                 }}
                 validationSchema={validationSchema}

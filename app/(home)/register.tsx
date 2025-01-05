@@ -41,7 +41,7 @@ const RegisterScreen = () => {
             <Formik
                 initialValues={{ email: '', pwd: '', name: '' }}
                 onSubmit={(values) => {
-                    router.push('/login');
+                    router.replace('/login');
                     console.log(values);
                 }}
                 validationSchema={valdidationSchema}
